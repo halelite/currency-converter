@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import switchLogo from './assets/icons/swap-svgrepo-com.svg';
 
 function CurrencyConverter() {
@@ -66,15 +66,15 @@ function CurrencyConverter() {
             setLoading(false);
         });
 
-        let officialResult;
+        let marketResult;
 
         if(fromCurrency === 'USD') {
-            officialResult = amount * freeMarketRate;
+            marketResult = amount * freeMarketRate;
         } else if(fromCurrency === "IRR") {
-            officialResult = amount / freeMarketRate;
+            marketResult = amount / freeMarketRate;
         }
 
-        setFreeMarketRate(officialResult);
+        setFreeMarketResult(marketResult);
     }
 
     const optionList = options.map(option => (
@@ -146,7 +146,7 @@ function CurrencyConverter() {
 
             <p>مقدار تبدیل شده:</p>
             <div className="result-box">
-                {officialResult ? 
+                {officialResult && freeMarketResult ? 
                 <>
                 <div className="item">
                     <span>نرخ رسمی:</span>
@@ -154,7 +154,7 @@ function CurrencyConverter() {
                 </div>
                 <div className="item">
                     <span>نرخ بازار آزاد:</span>
-                    <p>{inputNumber} {fromCurrency} = {freeMarketRate.toLocaleString()} {toCurrency}</p>
+                    <p>{inputNumber} {fromCurrency} = {freeMarketResult.toLocaleString()} {toCurrency}</p>
                 </div>
                 </>
                 : loading && <div dir="ltr">Loading...</div>}
