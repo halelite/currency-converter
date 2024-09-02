@@ -1,38 +1,203 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+    font-family: vazir;
+    font-weight: 400;
+    src: url("./assets/fonts/vazir-font-v30.1.0/Vazir-Regular.ttf") format("ttf"),
+    url("./assets/fonts/vazir-font-v30.1.0/Vazir-Regular.woff") format("woff"),
+    url("./assets/fonts/vazir-font-v30.1.0/Vazir-Regular.woff2") format("woff2"),
+    url("./assets/fonts/vazir-font-v30.1.0/Vazir-Regular.eot");
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    background: linear-gradient(to top, rgb(161, 140, 209) 0%, rgb(251, 194, 235) 100%);
+    height: 100vh;
+    position: relative;
+    font-family: vazir;
+    direction: rtl;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.converter-container {
+    width: 92%;
+    min-height: 470px;
+    height: fit-content;
+    background-color: #fcf7ff;
+    padding: 20px;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #6c5a9a;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+label[for=amount] {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.select-section {
+    position: relative;
+    display: flex;
+    border: 1px solid rgb(118, 118, 118);
+    border-radius: 5px;
+    padding: 0 4px;
+}
+
+.select-section img {
+    width: 24px;
+}
+
+label[for=from], label[for=to] {
+    position: absolute;
+    top: -28px;
+}
+
+input[type=number] {
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid rgb(118, 118, 118);
+    padding: 5px;
+}
+
+input[type=number].hasError {
+    border: 1px solid red;
+}
+
+input::placeholder {
+    font-family: vazir;
+}
+
+.error {
+    font-size: 14px;
+    color: red;
+}
+
+.currency-inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    margin-top: 48px;
+}
+
+select {
+    width: 68px;
+    min-width: 60px;
+    height: 35px;
+    padding: 0 3px;
+    padding-left: 10px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.switch {
+    width: 38px;
+    height: 38px;
+    background-color: #eee;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin: 0 2px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s ease-out;
+}
+
+.switch img {
+    width: 23px;
+}
+
+.convertBtn {
+    height: 40px;
+    width: 100%;
+    margin: 20px 0;
+    background-color: #845ec2;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-family: vazir;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+p {
+    margin: 5px 0;
+}
+
+.result-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    min-height: 80px;
+    text-align: center;
+    background-color: #e2e1e1;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.result-box .item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.result-box .item span {
+    color: #333333;
+    font-size: 0.9rem;
+    padding: 3px 0;
+}
+
+.result-box .item p {
+    direction: ltr;
+    font-size: 0.9rem;
+}
+
+@media screen and (min-width: 450px) {
+    .converter-container {
+        width: 400px;
+    }
+
+    select {
+        width: 86px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .converter-container {
+        width: 420px;
+    }
+
+    select {
+        width: 100px;
+    }
+
+    .result-box .item p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .convertBtn:hover {
+        background-color: rgba(132, 94, 194, 0.8);
+    }
+
+    .switch:hover {
+        border: 2px solid rgb(161, 140, 209);
+    }
 }
