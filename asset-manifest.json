@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/currency-converter/static/css/main.74877781.css",
-    "main.js": "/currency-converter/static/js/main.201224fe.js",
+    "main.js": "/currency-converter/static/js/main.26f8481b.js",
     "static/media/Vazir-Regular.eot": "/currency-converter/static/media/Vazir-Regular.6ac404eb3f53dd9ce67f.eot",
     "static/media/Vazir-Regular.ttf": "/currency-converter/static/media/Vazir-Regular.a24d67ce7f999b3cef04.ttf",
     "static/media/Vazir-Regular.woff": "/currency-converter/static/media/Vazir-Regular.806537dbf5ba4d9ab402.woff",
@@ -9,10 +9,10 @@
     "static/media/swap-svgrepo-com.svg": "/currency-converter/static/media/swap-svgrepo-com.b72f374bc41417cdd3e330ddbf265f89.svg",
     "index.html": "/currency-converter/index.html",
     "main.74877781.css.map": "/currency-converter/static/css/main.74877781.css.map",
-    "main.201224fe.js.map": "/currency-converter/static/js/main.201224fe.js.map"
+    "main.26f8481b.js.map": "/currency-converter/static/js/main.26f8481b.js.map"
   },
   "entrypoints": [
     "static/css/main.74877781.css",
-    "static/js/main.201224fe.js"
+    "static/js/main.26f8481b.js"
   ]
 }
