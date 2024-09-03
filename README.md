@@ -1,4 +1,4 @@
-# Frontend Mentor - Age calculator app solution
+# Currency converter app
 
 Welcome to the currency converter app! This app is built using React.
 
