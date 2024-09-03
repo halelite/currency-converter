@@ -23,6 +23,7 @@ function CurrencyConverter() {
         setFromCurrency(toCurrency);
         setToCurrency(temp);
         setOfficialResult(0);
+        setFreeMarketResult(0);
     }
 
     function handleSubmit(e, amount) {
@@ -48,6 +49,7 @@ function CurrencyConverter() {
     }
 
     function convertCurrency(amount) {
+        let marketResult;
         setLoading(true);
         fetch(`https://v6.exchangerate-api.com/v6/d153f07b9c638c53841573d8/latest/${fromCurrency}`)
         .then(response => {
@@ -61,20 +63,18 @@ function CurrencyConverter() {
 
             let rate = data.conversion_rates[toCurrency];
             let result = amount * rate;
-            
+
+            if(fromCurrency === 'USD') {
+                marketResult = amount * freeMarketRate;
+            } else if(fromCurrency === "IRR") {
+                marketResult = amount / freeMarketRate;
+            }
+
+            setFreeMarketResult(marketResult);
             setOfficialResult(result);
             setLoading(false);
         });
 
-        let marketResult;
-
-        if(fromCurrency === 'USD') {
-            marketResult = amount * freeMarketRate;
-        } else if(fromCurrency === "IRR") {
-            marketResult = amount / freeMarketRate;
-        }
-
-        setFreeMarketResult(marketResult);
     }
 
     const optionList = options.map(option => (
